@@ -305,8 +305,8 @@ class PreprocessData:
         :return:
         """
         f = h5py.File(self._export_squad_path, 'w')
-        str_dt = h5py.special_dtype(vlen=str)
-
+        # str_dt = h5py.special_dtype(vlen=str)
+        str_dt = h5py.special_dtype(vlen=int)
         # attributes
         for attr_name in self._attr:
             f.attrs[attr_name] = self._attr[attr_name]
