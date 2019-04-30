@@ -22,6 +22,7 @@ def init_logging(config_path='config/logging_config.yaml'):
     except IOError:
         sys.stderr.write('logging config file "%s" not found' % config_path)
         logging.basicConfig(level=logging.DEBUG)
+        
 
 
 def read_config(config_path='config/global_config.yaml'):
