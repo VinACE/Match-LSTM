@@ -16,7 +16,7 @@ def init_logging(config_path='config/logging_config.yaml'):
     """
     try:
         with open(config_path, 'r') as f:
-            # config = yaml.load(f.read())
+            # config = yaml.load(f.read()) 
             config = yaml.load(f, Loader=yaml.SafeLoader)
         logging.config.dictConfig(config)
     except IOError:
