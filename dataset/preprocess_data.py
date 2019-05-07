@@ -306,8 +306,8 @@ class PreprocessData:
         :return:
         """
         f = h5py.File(self._export_squad_path, 'w')
-        # str_dt = h5py.special_dtype(vlen=str)
-        str_dt = h5py.special_dtype(vlen=int)
+        str_dt = h5py.special_dtype(vlen=unicode)
+        # str_dt = h5py.special_dtype(vlen=int)
         # attributes
         for attr_name in self._attr:
             f.attrs[attr_name] = self._attr[attr_name]
@@ -315,7 +315,7 @@ class PreprocessData:
         # meta_data
         f_meta_data = f.create_group('meta_data')
         for key in ['id2word', 'id2char', 'id2pos', 'id2ent']:
-            value = np.array(self._meta_data[key], dtype=np.str)
+            value = np.array(self._meta_data[key], dtype=np.str) 
             meta_data = f_meta_data.create_dataset(key, value.shape, dtype=str_dt, **self._compress_option)
             meta_data[...] = value
 
