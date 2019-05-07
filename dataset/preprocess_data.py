@@ -283,6 +283,7 @@ class PreprocessData:
         :return:
         """
         logger.info("read glove from text file %s" % self._glove_path)
+        import pdb; pdb.set_trace()
         with zipfile.ZipFile(self._glove_path, 'r') as zf:
             if len(zf.namelist()) != 1:
                 raise ValueError('glove file "%s" not recognized' % self._glove_path)
